@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.Tooltip?>
+
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.addressbook.ModifyScheduleControl">
+   <top>
+         <HBox fx:id="myHBox" spacing="10" styleClass="menu-bar">
+            <Button onAction="#toSummary" text="Dashboard">
+               <tooltip>
+                  <Tooltip text="View Dashboard" />
+               </tooltip>
+            </Button>
+            <Button onAction="#toSchedule" text="Schedule">
+               <tooltip>
+                  <Tooltip text="View schedule" />
+               </tooltip>
+            </Button>
+            <Button onAction="#toGoals" text="Goals">
+               <tooltip>
+                  <Tooltip text="View goals" />
+               </tooltip>
+            </Button>
+            <Button onAction="#toSetup" text="Setup">
+               <tooltip>
+                  <Tooltip text="Setup application" />
+               </tooltip>
+            </Button>
+         </HBox>
+   </top>
+   <center>
+      <VBox>
+         <HBox alignment="BOTTOM_RIGHT" spacing="10.0">
+            <AnchorPane fx:id="tutorial" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="225.0" visible="false">
+               <children>
+                  <Label fx:id="nameLabel" />
+                  <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="40.0" text="Click again to close tutorial" textFill="#a348e4">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Rectangle fx:id="Monday10112" arcHeight="10.0" arcWidth="5.0" fill="WHITE" height="40.0" layoutX="230.0" layoutY="-10.0" stroke="#a348e4" strokeType="INSIDE" strokeWidth="3.0" width="40.0" />
+                  <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="-210.0" layoutY="290.0" text="Adjust your schedule base on hour of the day" textFill="#32a5e8">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Rectangle fx:id="Monday1011" arcHeight="10.0" arcWidth="5.0" fill="WHITE" height="37.0" layoutX="144.0" layoutY="364.0" stroke="#23d0bc" strokeType="INSIDE" strokeWidth="3.0" width="65.0" />
+                  <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="20.0" layoutY="400.0" text="Click accept to finalise your adjustment" textFill="#23d0bc">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Rectangle fx:id="Monday101" arcHeight="10.0" arcWidth="5.0" fill="WHITE" height="37.0" layoutX="-342.0" layoutY="102.0" stroke="#2dc937" strokeType="INSIDE" strokeWidth="3.0" width="533.0" />
+                  <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="-240.0" layoutY="75.0" text="Choose a date to start adjusting your schedule" textFill="#2dc937">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Rectangle fx:id="Monday10111" arcHeight="10.0" arcWidth="5.0" fill="WHITE" height="106.0" layoutX="-385.0" layoutY="179.0" stroke="#32a5e8" strokeType="INSIDE" strokeWidth="3.0" width="650.0" />
+               </children>
+               <HBox.margin>
+                  <Insets top="20.0" />
+               </HBox.margin>
+            </AnchorPane>
+            <Button fx:id="tutorialButton" alignment="CENTER" onAction="#onClickTutorial" prefHeight="30.0" prefWidth="30.0" text="?">
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </Button>
+         </HBox>
+         <HBox alignment="BOTTOM_RIGHT" prefHeight="25.0" prefWidth="750.0" spacing="10.0">
+            <RadioButton fx:id="Monday" mnemonicParsing="false" onAction="#onChoseMonday" text="Monday">
+               <toggleGroup>
+                  <ToggleGroup fx:id="d" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="Tuesday" mnemonicParsing="false" onAction="#onChoseTuesday" text="Tuesday" toggleGroup="$d" />
+            <RadioButton fx:id="Wednesday" mnemonicParsing="false" onAction="#onChoseWednesday" text="Wednesday" toggleGroup="$d" />
+            <RadioButton fx:id="Thursday" mnemonicParsing="false" onAction="#onChoseThursday" text="Thursday" toggleGroup="$d" />
+            <RadioButton fx:id="Friday" mnemonicParsing="false" onAction="#onChoseFriday" text="Friday" toggleGroup="$d" />
+            <RadioButton fx:id="Saturday" mnemonicParsing="false" onAction="#onChoseSaturday" text="Saturday" toggleGroup="$d" />
+            <RadioButton fx:id="Sunday" mnemonicParsing="false" onAction="#onChoseSunday" text="Sunday" toggleGroup="$d">
+               <HBox.margin>
+                  <Insets right="100.0" />
+               </HBox.margin>
+            </RadioButton>
+            <VBox.margin>
+               <Insets top="80.0" />
+            </VBox.margin>
+         </HBox>
+         <GridPane alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT">
+            <columnConstraints>
+               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+               <ChoiceBox fx:id="am0" disable="true" prefWidth="40.0" GridPane.rowIndex="1" />
+               <ChoiceBox fx:id="am1" disable="true" prefWidth="40.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+               <ChoiceBox fx:id="am2" disable="true" prefWidth="40.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+               <ChoiceBox fx:id="am3" disable="true" prefWidth="40.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+               <ChoiceBox fx:id="am4" disable="true" prefWidth="40.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+               <ChoiceBox fx:id="am5" disable="true" prefWidth="40.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+               <ChoiceBox fx:id="am6" disable="true" prefWidth="40.0" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+               <ChoiceBox fx:id="am7" disable="true" prefWidth="40.0" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+               <ChoiceBox fx:id="am8" disable="true" prefWidth="40.0" GridPane.columnIndex="8" GridPane.rowIndex="1" />
+               <ChoiceBox fx:id="am9" disable="true" prefWidth="40.0" GridPane.columnIndex="9" GridPane.rowIndex="1" />
+               <ChoiceBox fx:id="am10" disable="true" prefWidth="40.0" GridPane.columnIndex="10" GridPane.rowIndex="1" />
+               <ChoiceBox fx:id="am11" disable="true" prefWidth="40.0" GridPane.columnIndex="11" GridPane.rowIndex="1" />
+               <Label alignment="CENTER" contentDisplay="CENTER" text="AM" wrapText="true" GridPane.columnIndex="12" GridPane.rowIndex="1" />
+               <Label text="0">
+                  <GridPane.margin>
+                     <Insets left="20.0" />
+                  </GridPane.margin>
+               </Label>
+               <ChoiceBox fx:id="pm0" disable="true" prefWidth="40.0" GridPane.rowIndex="2" />
+               <ChoiceBox fx:id="pm1" disable="true" prefWidth="40.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+               <ChoiceBox fx:id="pm2" disable="true" prefWidth="40.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+               <ChoiceBox fx:id="pm3" disable="true" prefWidth="40.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+               <ChoiceBox fx:id="pm4" disable="true" prefWidth="40.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+               <ChoiceBox fx:id="pm5" disable="true" prefWidth="40.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+               <ChoiceBox fx:id="pm6" disable="true" prefWidth="40.0" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+               <ChoiceBox fx:id="pm7" disable="true" prefWidth="40.0" GridPane.columnIndex="7" GridPane.rowIndex="2" />
+               <ChoiceBox fx:id="pm8" disable="true" prefWidth="40.0" GridPane.columnIndex="8" GridPane.rowIndex="2" />
+               <ChoiceBox fx:id="pm9" disable="true" prefWidth="40.0" GridPane.columnIndex="9" GridPane.rowIndex="2" />
+               <ChoiceBox fx:id="pm10" disable="true" prefWidth="40.0" GridPane.columnIndex="10" GridPane.rowIndex="2" />
+               <ChoiceBox fx:id="pm11" disable="true" prefWidth="40.0" GridPane.columnIndex="11" GridPane.rowIndex="2" />
+               <Label alignment="CENTER" contentDisplay="CENTER" text="PM" wrapText="true" GridPane.columnIndex="12" GridPane.rowIndex="2" />
+               <Label text="1" GridPane.columnIndex="1">
+                  <GridPane.margin>
+                     <Insets left="20.0" />
+                  </GridPane.margin>
+               </Label>
+               <Label text="2" GridPane.columnIndex="2">
+                  <padding>
+                     <Insets left="20.0" />
+                  </padding>
+               </Label>
+               <Label text="3" GridPane.columnIndex="3">
+                  <GridPane.margin>
+                     <Insets left="20.0" />
+                  </GridPane.margin>
+               </Label>
+               <Label text="4" GridPane.columnIndex="4">
+                  <GridPane.margin>
+                     <Insets left="20.0" />
+                  </GridPane.margin>
+               </Label>
+               <Label text="5" GridPane.columnIndex="5">
+                  <GridPane.margin>
+                     <Insets left="20.0" />
+                  </GridPane.margin>
+               </Label>
+               <Label text="6" GridPane.columnIndex="6">
+                  <GridPane.margin>
+                     <Insets left="20.0" />
+                  </GridPane.margin>
+               </Label>
+               <Label text="7" GridPane.columnIndex="7">
+                  <GridPane.margin>
+                     <Insets left="20.0" />
+                  </GridPane.margin>
+               </Label>
+               <Label text="8" GridPane.columnIndex="8">
+                  <padding>
+                     <Insets left="20.0" />
+                  </padding>
+               </Label>
+               <Label text="9" GridPane.columnIndex="9">
+                  <GridPane.margin>
+                     <Insets left="20.0" />
+                  </GridPane.margin>
+               </Label>
+               <Label text="10" GridPane.columnIndex="10">
+                  <GridPane.margin>
+                     <Insets left="20.0" />
+                  </GridPane.margin>
+               </Label>
+               <Label text="11" GridPane.columnIndex="11">
+                  <GridPane.margin>
+                     <Insets left="20.0" />
+                  </GridPane.margin>
+               </Label>
+            </children>
+            <VBox.margin>
+               <Insets left="100.0" top="50.0" />
+            </VBox.margin>
+         </GridPane>
+         <HBox alignment="BOTTOM_RIGHT" spacing="10.0">
+            <Button fx:id="accept" alignment="CENTER" disable="true" onAction="#onChoseAccept" text="Accept">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="cancel" onAction="#handleCloseButtonAction" text="Cancel">
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </Button>
+         </HBox>
+      </VBox>
+   </center>
+</BorderPane>

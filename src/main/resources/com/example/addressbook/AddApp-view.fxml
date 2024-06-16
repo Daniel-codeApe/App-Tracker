@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.addressbook.AddAppController">
+    <top>
+        <HBox spacing="10" BorderPane.alignment="CENTER" styleClass="menu-bar">
+            <Button onAction="#toSummary" text="Dashboard">
+                <tooltip>
+                    <Tooltip text="View Dashboard" />
+                </tooltip>
+            </Button>
+            <Button onAction="#toSchedule" text="Schedule">
+                <tooltip>
+                    <Tooltip text="View schedule" />
+                </tooltip>
+            </Button>
+            <Button onAction="#toGoals" text="Goals">
+                <tooltip>
+                    <Tooltip text="View goals" />
+                </tooltip>
+            </Button>
+            <Button onAction="#toSetup" text="Setup">
+                <tooltip>
+                    <Tooltip text="View Setup" />
+                </tooltip>
+            </Button>
+        </HBox>
+    </top>
+    <center>
+        <VBox alignment="TOP_CENTER" spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <Label fx:id="nameLabel" text="Add New Application" style="-fx-font-size: 16px; -fx-font-weight: bold;">
+            </Label>
+
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <VBox spacing="5">
+                    <Label text="Filter">
+                    </Label>
+                    <StackPane alignment="CENTER_RIGHT">
+                        <TextField fx:id="filterField" prefHeight="25.0" prefWidth="321.0">
+                            <tooltip>
+                                <Tooltip text="Enter text to filter the list of applications or type the name of a new application to add it" />
+                            </tooltip>
+                        </TextField>
+                        <Button fx:id="clearButton" text="X" onAction="#clearFilter" style="-fx-font-size: 10px; -fx-padding: 0 5 0 5;" />
+                    </StackPane>
+                </VBox>
+                <Button fx:id="addButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" text="Add Application">
+                    <tooltip>
+                        <Tooltip text="Click to add a new application" />
+                    </tooltip>
+                </Button>
+                <Label fx:id="messageLabel" text="App Added" opacity="0.0">
+                    <tooltip>
+                        <Tooltip text="Message indicating the status of the application addition" />
+                    </tooltip>
+                </Label>
+            </HBox>
+
+            <Button mnemonicParsing="false" onAction="#refreshOpenApp" text="Refresh Open Apps" alignment="CENTER">
+                <tooltip>
+                    <Tooltip text="Refresh the list of open applications" />
+                </tooltip>
+            </Button>
+
+            <Label text="Currently Opened Applications" style="-fx-font-size: 14px; -fx-font-weight: bold;">
+            </Label>
+            <ListView fx:id="appListView" prefHeight="200.0" prefWidth="321.0">
+                <tooltip>
+                    <Tooltip text="List of currently opened applications" />
+                </tooltip>
+            </ListView>
+        </VBox>
+    </center>
+</BorderPane>

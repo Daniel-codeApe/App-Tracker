@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.addressbook.SignupController">
+   <children>
+      <VBox alignment="CENTER" spacing="10">
+         <Label text="Sign up" textFill="#FFD700">
+            <font>
+               <Font size="33.0" />
+            </font>
+         </Label>
+         <Label fx:id="errorMessage" prefHeight="17.0" prefWidth="451.0" textAlignment="CENTER" textFill="#c31616" />
+         <Label text="Username:" textFill="#FFD700"/>
+         <TextField fx:id="UsernameInput" maxWidth="200.0" />
+         <Label text="Email:" textFill="#FFD700"/>
+         <TextField fx:id="EmailInput" maxWidth="200.0" />
+         <Label text="Password:" textFill="#FFD700"/>
+         <PasswordField fx:id="PasswordInput" maxWidth="200.0" />
+         <Label text="Confirm Password:" textFill="#FFD700"/>
+         <PasswordField fx:id="ConfirmPasswordInput" maxWidth="200.0" />
+         <Button fx:id="SignupButton" mnemonicParsing="false" onAction="#signup" text="Sign Up" style="-fx-border-color: #FFD700; -fx-text-fill: #FFD700;" />
+         <Button fx:id="toLogin" mnemonicParsing="false" onAction="#setToLogin" text="Already have an account? Please log in" style="-fx-border-color: #FFD700; -fx-text-fill: #FFD700;" />
+      </VBox>
+   </children>
+</StackPane>
