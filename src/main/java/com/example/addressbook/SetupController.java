@@ -1,36 +1,47 @@
 package com.example.addressbook;
 
 import java.util.Optional;
-
 import javafx.scene.control.TextInputDialog;
+import javafx.animation.Animation;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-
+import java.util.Objects;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.util.Duration;
 import javafx.scene.layout.HBox;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.layout.TilePane;
+import javafx.scene.layout.VBox;
 import javafx.geometry.Insets;
-
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import javafx.scene.control.Button;
-
+import javafx.event.EventHandler;
 import java.io.File;
 import java.io.FileWriter;
+import javafx.geometry.Pos;
 
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.control.ScrollPane;
 
 import javafx.scene.image.Image;
@@ -102,41 +113,6 @@ public class SetupController {
         window.setScene(addAppScene);
         window.show();
     }
-
-    @FXML
-    private void toSchedule(ActionEvent event) throws IOException {
-        // Load the FXML file
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("ScheduleUI.fxml"));
-        Parent scheduleParent = fxmlLoader.load();
-
-        // Wrap the root layout in a ScrollPane
-        ScrollPane scrollPane = SceneUtils.createScrollableContent(scheduleParent);
-
-        // Create a styled scene
-        Scene scheduleScene = SceneUtils.createStyledScene(scrollPane, ScheduleControl.WIDTH, ScheduleControl.HEIGHT);
-
-        // Get the current stage (window)
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-        // Set the new scene on the current stage
-        stage.setScene(scheduleScene);
-        stage.show();
-    }
-
-    @FXML
-    public void toGoals() throws IOException {
-        Stage stage = (Stage) nameLabel.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("goals-view.fxml"));
-        Parent root = fxmlLoader.load();
-        GoalsController goalsController = fxmlLoader.getController();
-        goalsController.getUser(currentUser);
-        Scene scene = SceneUtils.createStyledScene(root, MainApplication.WIDTH, MainApplication.HEIGHT);
-        stage.setScene(scene);
-    }
-
-
-
-
 
     @FXML
     private Button exportButton;

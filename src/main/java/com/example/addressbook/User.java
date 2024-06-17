@@ -8,15 +8,17 @@ public class User {
     private String password;
     private String email;
     private int id;
+    private Dictionary<String, String> appUsage;
 
-    public User(String username, String email, String password) {
+    public User(String username, String password, String email) {
         this.username = username;
         this.password = password;
         this.email = email;
+        this.appUsage = new Hashtable<>();
     }
 
     public int getId() {
-        return this.id;
+        return id;
     }
 
     public void setId(int id) {
@@ -24,14 +26,23 @@ public class User {
     }
 
     public String getUsername() {
-        return this.username;
+        return username;
     }
 
     public String getPassword() {
-        return this.password;
+        return password;
     }
 
     public String getEmail() {
-        return this.email;
+        return email;
+    }
+    public String getTableName() {
+        return "user" + id;
+    }
+    public Dictionary<String, String> getAppUsage() {
+        return appUsage;
+    }
+    public void addAppUsage(String appname, String seconds) {
+        appUsage.put(appname, seconds);
     }
 }

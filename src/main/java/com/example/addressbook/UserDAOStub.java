@@ -1,8 +1,5 @@
 package com.example.addressbook;
 
-import com.example.addressbook.schedule.Setup.Date;
-import javafx.scene.paint.Color;
-
 import java.sql.Connection;
 import java.util.*;
 
@@ -44,7 +41,7 @@ public class UserDAOStub implements IUserDAO {
     }
 
     @Override
-    public Dictionary<String, Integer> getUsageSummary(User user, String option, String purpose) {
+    public Dictionary<String, Integer> getWeeklyUsage(User user) {
         // Return a hard-coded dictionary for simplicity
         Dictionary<String, Integer> usage = new Hashtable<>();
         usage.put("app1", 10);
@@ -57,26 +54,8 @@ public class UserDAOStub implements IUserDAO {
         return null;
     }
 
-    public void createStartingData(User user) {
-
-    }
-
-    @Override
-    public void updateSchedule(User user, Date date) {
-
-    }
-
-    @Override
-    public String getPurpose(User user, String date, int time) {
-        return null;
-    }
-
     @Override
     public void saveStartTimeToDatabase(Connection connection, int userID, String appName) {
-
-    }
-
-    public void DefaultColor(User user) {
 
     }
 
@@ -97,12 +76,4 @@ public class UserDAOStub implements IUserDAO {
         // Since this is a stub, we don't need to do anything here
     }
 
-    public void UpdateColor(User user, String purpose, Color color) {
-
-    }
-
-    @Override
-    public Color getColor(User user, String purpose) {
-        return null;
-    }
 }

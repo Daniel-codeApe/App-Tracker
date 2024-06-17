@@ -16,12 +16,12 @@
                         <Tooltip text="View Dashboard" />
                     </tooltip>
                 </Button>
-                <Button onAction="#toSchedule" text="Schedule">
+                <Button text="Schedule">
                     <tooltip>
                         <Tooltip text="View schedule" />
                     </tooltip>
                 </Button>
-                <Button onAction="#toGoals" text="Goals">
+                <Button text="Goals">
                     <tooltip>
                         <Tooltip text="View goals" />
                     </tooltip>
@@ -32,7 +32,7 @@
                     </tooltip>
                 </Button>
             </HBox>
-            <Label fx:id="nameLabel" alignment="CENTER" contentDisplay="CENTER" text="Setup">
+            <Label alignment="CENTER" contentDisplay="CENTER" text="Setup">
                 <font>
                     <Font name="System Bold" size="33.0" />
                 </font>

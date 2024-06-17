@@ -14,7 +14,6 @@ import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 import java.util.Objects;
-import java.util.regex.Pattern;
 
 public class SignupController {
     @FXML
@@ -57,13 +56,6 @@ public class SignupController {
         stage.setScene(scene);
     }
 
-    public static boolean emailMatches(String emailAddress) {
-        String pattern = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
-        return Pattern.compile(pattern)
-                .matcher(emailAddress)
-                .matches();
-    }
-
     public void signup() throws IOException, NoSuchAlgorithmException {
         String username = String.valueOf(UsernameInput.getText());
         String email = String.valueOf(EmailInput.getText());
@@ -84,15 +76,9 @@ public class SignupController {
             errorMessage.setText("Username cannot be empty");
         } else if (Objects.equals(email, "")) {
             errorMessage.setText("Email shouldn't be empty");
-        } else if (password.length() < 8) {
-            errorMessage.setText("The Password needs to be at least 8 characters long");
-        } else if (!emailMatches(email)) {
-            errorMessage.setText("Invalid email Address");
-        } else {
-            User newUser = new User(username, email, PasswordHash.encrypt(password));
+        } else{
+            User newUser = new User(username, password, email);
             userDAO.addUser(newUser);
-            userDAO.createStartingData(newUser);
-            userDAO.DefaultColor(newUser);
 //            userDAO.createUserTable(newUser);
             //userDAO.insertAppUsage(newUser.getTableName(), "facebook");
             toDashboard(newUser);

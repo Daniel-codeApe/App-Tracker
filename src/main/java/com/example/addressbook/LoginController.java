@@ -64,11 +64,11 @@ public class LoginController {
         String password = String.valueOf(passwordInput.getText());
         List<User> signedUsers = userDAO.getAllUsers();
         for (User user : signedUsers) {
-            System.out.println(user.getPassword() + user.getEmail());
             if ((Objects.equals(user.getUsername(), username_or_email) ||
                     Objects.equals(user.getEmail(), username_or_email) )&&
-                            Objects.equals(user.getPassword(), PasswordHash.encrypt(password)) ) {
+                            Objects.equals(user.getPassword(), password) ) {
                 //toProfile(user);
+                System.out.println(user.getId());
                 toDashboard(user);
                 return true;
             }

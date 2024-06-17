@@ -5,18 +5,14 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
+import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -24,7 +20,10 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 
@@ -33,17 +32,11 @@ public class DashboardController {
     private Label nameLabel;
     @FXML
     private Button toProfileButton;
-    @FXML
-    private MenuItem toScheduleButton;
-    public static User currentUser;
+    private User currentUser;
     @FXML
     private PieChart pieChart;
     @FXML
     private TilePane tilePane;
-    @FXML
-    private ComboBox<String> timeFilter;
-    @FXML
-    private ComboBox<String> purposeFilter;
     private ObservableList<PieChart.Data> pieChartData;
     private IUserDAO userDAO;
 
@@ -52,6 +45,7 @@ public class DashboardController {
     public DashboardController() {
         this.userDAO = new sqlDAO();
         this.connection = userDAO.getConnection();
+        pieChartData = FXCollections.observableArrayList();
     }
 
     public void getUser(User user) {
@@ -61,21 +55,13 @@ public class DashboardController {
         displayStoredApp();
     }
 
-    private String getTimeFilter() {
-        return timeFilter.getValue();
-    }
-
-    private String getPurposeFilter() {
-        return purposeFilter.getValue();
-    }
-
     private void updatePieChart() {
-        Dictionary<String, Integer> weeklyUsage = userDAO.getUsageSummary(currentUser, getTimeFilter(),
-                getPurposeFilter());
+        Dictionary<String, Integer> weeklyUsage = userDAO.getWeeklyUsage(currentUser);
         Enumeration<String> apps = weeklyUsage.keys();
         while (apps.hasMoreElements()) {
             String app = apps.nextElement();
             int duration = weeklyUsage.get(app);
+            System.out.println(app);
             pieChartData.add(new PieChart.Data(app, duration));
         }
         pieChart.setData(pieChartData);
@@ -104,36 +90,6 @@ public class DashboardController {
         Parent root = fxmlLoader.load();
         ProfileController profileController = fxmlLoader.getController();
         profileController.getUser(currentUser);
-        Scene scene = SceneUtils.createStyledScene(root, MainApplication.WIDTH, MainApplication.HEIGHT);
-        stage.setScene(scene);
-    }
-    @FXML
-    private void toSchedule(ActionEvent event) throws IOException {
-        // Load the FXML file
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("ScheduleUI.fxml"));
-        Parent scheduleParent = fxmlLoader.load();
-
-        // Wrap the root layout in a ScrollPane
-        ScrollPane scrollPane = SceneUtils.createScrollableContent(scheduleParent);
-
-        // Create a styled scene
-        Scene scheduleScene = SceneUtils.createStyledScene(scrollPane, ScheduleControl.WIDTH, ScheduleControl.HEIGHT);
-
-        // Get the current stage (window)
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-        // Set the new scene on the current stage
-        stage.setScene(scheduleScene);
-        stage.show();
-    }
-
-    @FXML
-    public void toGoals() throws IOException {
-        Stage stage = (Stage) nameLabel.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("goals-view.fxml"));
-        Parent root = fxmlLoader.load();
-        GoalsController goalsController = fxmlLoader.getController();
-        goalsController.getUser(currentUser);
         Scene scene = SceneUtils.createStyledScene(root, MainApplication.WIDTH, MainApplication.HEIGHT);
         stage.setScene(scene);
     }
@@ -228,22 +184,8 @@ public class DashboardController {
     }
 
 
-    @FXML
-    void initialize() {
-        pieChartData = FXCollections.observableArrayList();
-        timeFilter.setItems(FXCollections.observableArrayList("All time ", "Weekly", "Monthly", "Yearly"));
-        timeFilter.getSelectionModel().selectFirst();
-        // Add a listener to the ComboBox's value property
-        timeFilter.valueProperty().addListener((obs, oldValue, newValue) -> {
-            clearPieChart();
-            updatePieChart();
-        });
-
-        purposeFilter.setItems(FXCollections.observableArrayList("All Kinds", "Work", "Personal"));
-        purposeFilter.getSelectionModel().selectFirst();
-        purposeFilter.valueProperty().addListener((obs, oldValue, newValue) -> {
-            clearPieChart();
-            updatePieChart();
-        });
-    }
+//    @FXML
+//    void initialize() {
+//        pieChart.setData(pieChartData);
+//    }
 }

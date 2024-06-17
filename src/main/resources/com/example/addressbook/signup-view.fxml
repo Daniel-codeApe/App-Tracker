@@ -4,29 +4,26 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.addressbook.SignupController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.addressbook.SignupController">
    <children>
-      <VBox alignment="CENTER" spacing="10">
-         <Label text="Sign up" textFill="#FFD700">
-            <font>
-               <Font size="33.0" />
-            </font>
-         </Label>
-         <Label fx:id="errorMessage" prefHeight="17.0" prefWidth="451.0" textAlignment="CENTER" textFill="#c31616" />
-         <Label text="Username:" textFill="#FFD700"/>
-         <TextField fx:id="UsernameInput" maxWidth="200.0" />
-         <Label text="Email:" textFill="#FFD700"/>
-         <TextField fx:id="EmailInput" maxWidth="200.0" />
-         <Label text="Password:" textFill="#FFD700"/>
-         <PasswordField fx:id="PasswordInput" maxWidth="200.0" />
-         <Label text="Confirm Password:" textFill="#FFD700"/>
-         <PasswordField fx:id="ConfirmPasswordInput" maxWidth="200.0" />
-         <Button fx:id="SignupButton" mnemonicParsing="false" onAction="#signup" text="Sign Up" style="-fx-border-color: #FFD700; -fx-text-fill: #FFD700;" />
-         <Button fx:id="toLogin" mnemonicParsing="false" onAction="#setToLogin" text="Already have an account? Please log in" style="-fx-border-color: #FFD700; -fx-text-fill: #FFD700;" />
-      </VBox>
+      <Label layoutX="263.0" layoutY="15.0" text="Sign up">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Label>
+      <TextField fx:id="EmailInput" layoutX="248.0" layoutY="156.0" />
+      <Label layoutX="182.0" layoutY="121.0" text="Username:" />
+      <Label layoutX="183.0" layoutY="199.0" text="Password:" />
+      <Label layoutX="138.0" layoutY="240.0" text="Confirm Password:" />
+      <Button fx:id="SignupButton" layoutX="290.0" layoutY="282.0" mnemonicParsing="false" onAction="#signup" text="Sign Up" />
+      <TextField fx:id="UsernameInput" layoutX="248.0" layoutY="117.0" />
+      <Label layoutX="205.0" layoutY="160.0" text="Email:" />
+      <Label fx:id="errorMessage" layoutX="92.0" layoutY="76.0" prefHeight="17.0" prefWidth="451.0" textAlignment="CENTER" textFill="#c31616" />
+      <Button fx:id="toLogin" layoutX="212.0" layoutY="327.0" mnemonicParsing="false" onAction="#setToLogin" text="Already have an account? Please log in" />
+      <PasswordField fx:id="PasswordInput" layoutX="248.0" layoutY="195.0" />
+      <PasswordField fx:id="ConfirmPasswordInput" layoutX="248.0" layoutY="238.0" />
    </children>
-</StackPane>
+</AnchorPane>

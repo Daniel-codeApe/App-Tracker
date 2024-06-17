@@ -14,8 +14,8 @@ import static com.example.addressbook.SceneUtils.createScrollableContent;
 
 public class MainApplication extends Application {
     public static final String TITLE = "App Tracker";
-    public static final int WIDTH = 750;
-    public static final int HEIGHT = 500;
+    public static final int WIDTH = 640;
+    public static final int HEIGHT = 360;
 
     @Override
     public void start(Stage stage) throws IOException {

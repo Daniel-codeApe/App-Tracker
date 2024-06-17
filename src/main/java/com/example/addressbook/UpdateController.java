@@ -46,7 +46,7 @@ public class UpdateController {
         String updatedUsername = String.valueOf(usernameField.getText());
         String updatedEmail = String.valueOf(emailField.getText());
 
-        User updatedUser = new User(updatedUsername, updatedEmail, currentUser.getPassword());
+        User updatedUser = new User(updatedUsername, currentUser.getPassword(), updatedEmail);
         updatedUser.setId(currentUser.getId());
         userDAO.updateUser(updatedUser);
         toProfile(updatedUser);

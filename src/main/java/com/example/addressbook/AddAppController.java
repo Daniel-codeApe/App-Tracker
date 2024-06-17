@@ -8,7 +8,6 @@ import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -205,37 +204,6 @@ public class AddAppController {
         SetupController setupController = fxmlLoader.getController();
         setupController.getUser(currentUser);
         Scene scene = SceneUtils.createStyledScene(scrollPane, MainApplication.WIDTH, MainApplication.HEIGHT);
-        stage.setScene(scene);
-    }
-
-    @FXML
-    private void toSchedule(ActionEvent event) throws IOException {
-        // Load the FXML file
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("ScheduleUI.fxml"));
-        Parent scheduleParent = fxmlLoader.load();
-
-        // Wrap the root layout in a ScrollPane
-        ScrollPane scrollPane = SceneUtils.createScrollableContent(scheduleParent);
-
-        // Create a styled scene
-        Scene scheduleScene = SceneUtils.createStyledScene(scrollPane, ScheduleControl.WIDTH, ScheduleControl.HEIGHT);
-
-        // Get the current stage (window)
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-        // Set the new scene on the current stage
-        stage.setScene(scheduleScene);
-        stage.show();
-    }
-
-    @FXML
-    public void toGoals() throws IOException {
-        Stage stage = (Stage) nameLabel.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("goals-view.fxml"));
-        Parent root = fxmlLoader.load();
-        GoalsController goalsController = fxmlLoader.getController();
-        goalsController.getUser(currentUser);
-        Scene scene = SceneUtils.createStyledScene(root, MainApplication.WIDTH, MainApplication.HEIGHT);
         stage.setScene(scene);
     }
 
