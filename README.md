@@ -45,6 +45,11 @@ The user can add goals about a stored app. For example, "I want to spend less ti
 3. Custom Plans: Create personalized usage plans to allocate your time effectively. Whether it's work, study, or leisure, ensure your time is spent according to your priorities.
 4. Analytics: Visualize your progress with intuitive charts and graphs. Track your improvements over time and stay motivated to achieve your time management goals.
 
+# Technologies used
+1. Java (Amazon Corretto version 17.0.10)
+2. JavaFx
+3. SQL
+
 # How to run this project
 ### Clone the project
 This project can only run in Intellij!
