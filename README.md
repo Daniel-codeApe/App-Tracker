@@ -54,5 +54,8 @@ The user can add goals about a stored app. For example, "I want to spend less ti
 ### Clone the project
 This project can only run in Intellij!
 
+### Check library
+Check if the "xerial.sqlite.jdbc" library is applied, if not, please install it through Maven.
+
 ### Run the application
 Go to MainApplication.java and run it.
