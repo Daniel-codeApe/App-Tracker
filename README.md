@@ -1,7 +1,7 @@
 # App Tracker
 Welcome to App Tracker, a versatile application designed to help you monitor and manage your app usage effectively. Whether you're aiming to boost productivity, reduce screen time, or simply understand your digital habits, App Tracker provides the tools you need to take control of your time
 
-# UI previeew
+# UI preview
 ### Login/Register
 ![image](https://github.com/Daniel-codeApe/App-Tracker/assets/172876551/f8b01687-7d25-4acf-a5a4-6d16dfce692a)
 ![image](https://github.com/Daniel-codeApe/App-Tracker/assets/172876551/08803558-8d7a-43e5-b1f5-301170c55676)
